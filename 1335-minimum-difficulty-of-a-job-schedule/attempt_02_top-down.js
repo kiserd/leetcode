@@ -11,33 +11,20 @@ var minDifficulty = function(jobDifficulty, d) {
     if (d > jd.length) return -1;
     // build recursive function
     const dp = (i, days) => {
-        console.log(`i: ${i}`);
-        console.log(`days: ${days}`);
-        console.log(`d: ${d}`);
-        console.log(`days remaining: ${d - days}`);
-        console.log(`jobs remaining: ${jd.length - i}`);
         // handle base case of final day
         if (days === d - 1) {
             memo[i][days] = getMax(jd, i, jd.length);
             return memo[i][days];
         }
-        // handle base case of not enough jobs to fill days
-        // if (jd.length - i < d - days) {
-        //     memo[i][days] = Infinity;
-        //     return Infinity;
-        // }
         // handle case where memo is not populated
         if (memo[i][days] === false) {
             let min = Infinity;
-            console.log(`jd.length - (d - days): ${jd.length - (d - days)}`);
             for (let j = i + 1; j <= jd.length - (d - days) + 1; j++) {
                 const result = getMax(jd, i, j) + dp(j, days + 1);
                 if (result < min) min = result;
             }
             memo[i][days] = min;
         }
-        for (let k = 0; k < memo.length; k++) console.log(memo[k]);
-        console.log('=================');
         return memo[i][days];
         
     }
