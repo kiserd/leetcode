@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+    def sumOfLeftLeaves(self, root) -> int:
         # call and return result of recursive formula
         return self.search(root, False)
     
