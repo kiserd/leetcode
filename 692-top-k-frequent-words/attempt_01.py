@@ -122,17 +122,6 @@ class MaxHeap:
             return (idx - 1) // 2
         return None
     
-    def prt_is_less(self, idx):
-        prt_idx = self.get_prt_idx(idx)
-        if self.heap[prt_idx].count < self.heap[idx].count:
-            return True
-    
-    def has_child(self, idx, left=True):
-        if left:
-            return (idx * 2) + 1 < len(self.heap)
-        else:
-            return (idx * 2) + 2 < len(self.heap)
-    
     def get_child_idx(self, idx):
         arr = []
         if (idx * 2) + 1 < len(self.heap):
@@ -141,19 +130,6 @@ class MaxHeap:
             arr.append(None)
         if (idx * 2) + 2 < len(self.heap):
             arr.append((idx * 2) + 2)
-        else:
-            arr.append(None)
-        return tuple(arr)
-    
-    def get_child(self, idx):
-        idx_left, idx_right = self.get_child_idx(idx)
-        arr = []
-        if idx_left is not None:
-            arr.append(self.heap[idx_left])
-        else:
-            arr.append(None)
-        if idx_right is not None:
-            arr.append(self.heap[idx_right])
         else:
             arr.append(None)
         return tuple(arr)
