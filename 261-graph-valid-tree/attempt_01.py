@@ -1,10 +1,10 @@
+# spec specifically instructs user to utilize disjoint set data struct
 class Solution:
     def validTree(self, n: int, edges) -> bool:
         # loop through edges, building disjoint set
         ds = DisjointSet(n)
         for edge in edges:
             ds.union(edge[0], edge[1])
-            print(ds.root)
             if ds.has_cycle:
                 return False
         # check if DisjointSet represents a tree
