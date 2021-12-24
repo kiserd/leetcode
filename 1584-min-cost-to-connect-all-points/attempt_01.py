@@ -1,3 +1,4 @@
+# utilizing Kruskal's Algorithm
 class Solution:
     def minCostConnectPoints(self, points) -> int:
         # define a couple helper variables
