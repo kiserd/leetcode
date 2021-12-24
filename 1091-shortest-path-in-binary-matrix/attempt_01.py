@@ -17,7 +17,6 @@ class Solution:
         n = len(grid[0])
         end = [len(grid) - 1, len(grid[0]) - 1]
         queue = [[0, 0]]
-        next = 0
         visited = [[False for i in range(n)] for i in range(m)]
         # process using bfs
         while len(queue) != 0:
