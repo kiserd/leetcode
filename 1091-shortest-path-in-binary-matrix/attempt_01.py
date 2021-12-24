@@ -21,13 +21,13 @@ class Solution:
         visited = [[False for i in range(n)] for i in range(m)]
         # process using bfs
         while len(queue) != 0:
-            v = queue.pop(0)
-            d = grid[v[0]][v[1]]
+            i, j = queue.pop(0)
+            d = grid[i][j]
             # handle case of adjacency already explored
-            if not visited[v[0]][v[1]]:
-                visited[v[0]][v[1]] = True
+            if not visited[i][j]:
+                visited[i][j] = True
                 # handle case of exploring adjacencies
-                adjs = self.get_adjacencies(v, m, n, visited, grid)
+                adjs = self.get_adjacencies([i, j], m, n, visited, grid)
                 # handle case of hit in adjacencies
                 if end in adjs:
                     return d + 1
