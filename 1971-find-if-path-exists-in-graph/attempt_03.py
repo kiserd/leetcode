@@ -14,7 +14,7 @@ class Solution:
         for edge in edges:
             adj[edge[0]].append(edge[1])
             adj[edge[1]].append(edge[0])
-        # process using dfs
+        # process using bfs
         while len(queue) != next:
             v = queue[next]
             next += 1
