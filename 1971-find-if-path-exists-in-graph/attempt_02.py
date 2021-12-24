@@ -1,4 +1,5 @@
 # assignment spec explicitly requests for solution using dfs
+# utilize recursion
 class Solution:
     def validPath(self, n: int, edges, start: int, end: int) -> bool:
         # handle edge case of start == end
