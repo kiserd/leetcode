@@ -4,7 +4,7 @@
 # Description: unit testing
 
 import unittest
-from attempt_3 import Solution
+from attempt_03 import Solution
 
 class longtestPalindromeTests(unittest.TestCase):
     def test_1(self):
