@@ -29,12 +29,11 @@ class CoinChangeTests(unittest.TestCase):
         self.assertEqual(sol.change(amount, coins), output)
 
     def test_4(self):
-        # sol = Solution()
-        # coins = [1, 2, 5]
-        # amount = 5
-        # output = 4
-        # self.assertEqual(sol.change(amount, coins), output)
-        pass
+        sol = Solution()
+        coins = [3, 5, 7, 8, 9, 10, 11]
+        amount = 100
+        output = 6606
+        self.assertEqual(sol.change(amount, coins), output)
 
 
 if __name__ == '__main__':
