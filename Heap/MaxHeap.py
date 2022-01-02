@@ -1,43 +1,21 @@
-class Solution:
-    def topKFrequent(self, words, k: int):
-        # use dictionary to track explored words
-        dict = {}
-        # loop through word list
-        for word in words:
-            # handle case where word has been encountered already
-            if word in dict:
-                dict[word] += 1
-            else:
-                dict[word] = 1
-        # loop through dict and add to max-heap
-        heap = MaxHeap(k)
-        for key in dict:
-            # only handle case where node needs added
-            node = HeapNode(key, dict[key])
-            if heap.census < heap.capacity:
-                heap.add(node)
-            elif node.count > heap.min_count:
-                heap.add(node)
-            elif node.count == heap.min_count and node.word < heap.min_word:
-                heap.add(node)
-        # pop k items from top of max heap
-        return_arr = []
-        for i in range(k):
-            return_arr.append(heap.remove().word)
-        return return_arr
-
 class HeapNode:
     def __init__(self, word, count):
         self.word = word
         self.count = count
 
 class MaxHeap:
-    def __init__(self, k):
-        self.heap = []
-        self.capacity = k
-        self.census = 0
-        self.min_count = 501
-        self.min_word = ''
+    def __init__(self, size, arr=[]):
+        self.heap = [None] * size
+        self.length = len(arr)
+        # if starter array passed, heapify the array
+        if len(arr) > 0:
+            # self.heapify(arr)
+            pass
+    
+    def heapify(self, arr):
+        # get starting subtree
+        subtree = self.get_prt_idx(self.length - 1)
+        # recursively explore subtrees
     
     def add(self, node):
         # handle case where node represents a new min and update census
