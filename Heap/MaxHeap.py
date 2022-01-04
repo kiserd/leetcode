@@ -1,7 +1,8 @@
-class HeapNode:
-    def __init__(self, word, count):
-        self.word = word
-        self.count = count
+###### INCOMPLETE #######
+
+# class HeapNode:
+#     def __init__(self, val):
+#         self.val = val
 
 class MaxHeap:
     def __init__(self, size, arr=[]):
@@ -18,13 +19,6 @@ class MaxHeap:
         # recursively explore subtrees
     
     def add(self, node):
-        # handle case where node represents a new min and update census
-        if node.count < self.min_count:
-            self.min_count = node.count
-            self.min_word = node.word
-        if node.count == self.min_count and node.word > self.min_word:
-            self.min_word = node.word
-        self.census += 1
         # push node into next available spot
         self.heap.append(node)
         # establish working variables
@@ -37,8 +31,6 @@ class MaxHeap:
             idx_prt = self.get_prt_idx(idx)
     
     def remove(self):
-        # update census
-        self.census -= 1
         # handle edge case
         if len(self.heap) == 1:
             return self.heap.pop()
@@ -65,11 +57,8 @@ class MaxHeap:
         if idx is None or idx_prt is None:
             return False
         # handle case where child count is greater than parent's
-        if self.heap[idx].count > self.heap[idx_prt].count:
+        if self.heap[idx] > self.heap[idx_prt]:
             return True
-        # handle case where counts are equal
-        if self.heap[idx].count == self.heap[idx_prt].count:
-            return self.heap[idx].word < self.heap[idx_prt].word
         else:
             return False
 
@@ -78,11 +67,8 @@ class MaxHeap:
         if idx1 is None or idx2 is None:
             return False
         # handle case where count is less
-        if self.heap[idx1].count < self.heap[idx2].count:
+        if self.heap[idx1] < self.heap[idx2]:
             return True
-        # handle case where counts are equal
-        if self.heap[idx1].count == self.heap[idx2].count:
-            return self.heap[idx1].word > self.heap[idx2].word
         else:
             return False
     
