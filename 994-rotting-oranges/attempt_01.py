@@ -1,7 +1,7 @@
 # this was my 45-min simulated Facebook interview solution. Note, I relied on
 # debugging a bit in Leetcode editor
 class Solution:
-    def orangesRotting(self, grid: List[List[int]]) -> int:
+    def orangesRotting(self, grid) -> int:
         min_times = [[100] * len(grid[0]) for i in range(len(grid))]
         for i in range(len(grid)):
             for j in range(len(grid[0])):
@@ -11,23 +11,12 @@ class Solution:
                     q = [{'time': 0, 'node': [i, j]}]
                     visited = []
                     while len(q) != 0:
-                        ##### DEBUG
-                        print('beg===========')
-                        for row in min_times:
-                            print(row)
-                        ###########
                         elt = q.pop()
                         time = elt['time']
                         row, col = elt['node']
-                        # print('row: ', row)
-                        # print('col: ', col)
-                        # print('visited: ', visited)
                         if [row, col] not in visited:
                             if min_times[row][col] > time:
                                 min_times[row][col] = time
-                                print('end===========')
-                                for thing in min_times:
-                                    print(thing)
                             for node in self.get_adj(row, col, len(grid), len(grid[0])):
                                 if node not in visited and grid[node[0]][node[1]] == 1:
                                     q.insert(0, {'time': time + 1, 'node': node})
