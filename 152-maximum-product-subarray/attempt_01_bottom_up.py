@@ -17,3 +17,7 @@ class Solution:
                 dp[0][i] = 0
                 dp[1][i] = 0
         return max(dp[0])
+
+
+# dp[0][j] represents the max positive subarray ending at column j
+# dp[1][j] represents the max negative subarray ending at column j
