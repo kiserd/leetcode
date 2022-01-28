@@ -20,7 +20,7 @@ class Solution:
             while curr.left:
                 curr = curr.left
             return curr
-        if stack:
+        while stack:
             curr = stack.pop()
             if curr.val > p.val:
                 return curr
