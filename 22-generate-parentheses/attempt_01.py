@@ -1,13 +1,17 @@
 class Solution:
     def generateParenthesis(self, n: int):
         # define recursive function
-        def gen(n):
+        def helper(s, left, right):
             # handle base case
-            if n == 1: return ['()']
+            if len(s) == 2 * n:
+                res.append(s)
             # handle recursive exploration
-            rec = gen(n - 1)
-            left = ['()' + elt for elt in rec]
-            mid = ['(' + elt + ')' for elt in rec]
-            right = [ elt + '()' for elt in rec]
-            return left + mid + right
-        return list(set(gen(n)))
+            else:
+                if left < n:
+                    helper(s + '(', left + 1, right)
+                if right < left:
+                    helper(s + ')', left, right + 1)
+        # setup return vessel and call function
+        res = []
+        helper('(', 1, 0)
+        return res

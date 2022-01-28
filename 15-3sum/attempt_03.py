@@ -1,30 +1,20 @@
 class Solution:
-    def fourSum(self, nums, target: int):
+    def threeSum(self, nums):
         # handle edge case
-        if len(nums) < 4: return []
+        if len(nums) < 3: return []
         # sort array in O(n logn)
         nums.sort()
-        # call kSum()
-        mySet = self.kSum(nums, target, 4)
-        res = []
-        for elt in mySet:
-            res.append(list(elt))
-        return res
-
-    def kSum(self, nums, target, k):
-        # handle base case
-        if k == 2:
-            return self.twoSum(nums, target)
-        # handle recursive exploration
+        # use first number to get our twoSum target
         i = 0
-        res = set()
-        while i <= len(nums) - k:
-            # we don't want to repeat the "outer" num
+        res = []
+        while i < len(nums) and nums[i] <= 0:
+            # if we repeat "outer" number, we could get duplicates
             if i == 0 or nums[i] != nums[i - 1]:
-                for elt in self.kSum(nums[i + 1:], target - nums[i], k - 1):
-                    res.add((nums[i], ) + elt)
+                for elt in self.twoSum(nums[i + 1:], -nums[i]):
+                    res.append([nums[i]] + list(elt))
             i += 1
         return res
+
 
     def twoSum(self, numbers, target: int):
         # adjust twoSum() slightly to retrieve multiple distinct answers
