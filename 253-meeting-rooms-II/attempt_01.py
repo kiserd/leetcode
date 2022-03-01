@@ -18,4 +18,3 @@ class Solution:
             # check whether we needed a higher # of rooms to accomadate
             min_rooms = max(min_rooms, len(heap))
         return min_rooms
-
