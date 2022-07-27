@@ -11,6 +11,7 @@ class Solution:
         # get reference to end of list and head of remainder
         new_head = head
         rem = head.next
+
         def helper(end, rem):
             # handle base case
             if not rem:
