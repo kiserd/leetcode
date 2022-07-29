@@ -8,6 +8,7 @@ class Solution:
     def pathSum(self, root, targetSum: int):
         # prev attempt passed prefix_sum map, try with global
         prefix_sums = {}
+
         # define recursive helper function
         def helper(node, curr):
             # handle base case
