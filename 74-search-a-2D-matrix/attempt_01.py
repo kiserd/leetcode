@@ -5,6 +5,7 @@ class Solution:
         n = len(matrix[0])
         # if m == n == 1:
         #     return matrix[0][0] == target
+
         # define binary search function
         def bin(l, r):
             # handle unsuccessful base case
@@ -31,7 +32,3 @@ class Solution:
             else:
                 return bin(l, temp - 1)
         return bin(1, m * n)
-
-
-
-    
