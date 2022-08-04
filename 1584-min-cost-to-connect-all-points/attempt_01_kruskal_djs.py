@@ -17,6 +17,7 @@ class Solution:
                 num_edges += 1
         return dist
 
+
 class Edges:
     def __init__(self, points):
         # process edges
@@ -28,16 +29,18 @@ class Edges:
         arr.sort(key=lambda edge: edge.dist)
         self.edges = arr
 
+
 class Edge:
     def __init__(self, idx1, coord1, idx2, coord2):
         self.idx = [idx1, idx2]
         self.dist = abs(coord1[0] - coord2[0]) + abs(coord1[1] - coord2[1])
 
+
 class DisjointSet:
     def __init__(self, n):
         self.root = [i for i in range(n)]
         self.rank = [1] * n
-    
+
     def find(self, i):
         # handle base case of root
         if i == self.root[i]:
@@ -46,7 +49,7 @@ class DisjointSet:
         self.root[i] = self.find(self.root[self.root[i]])
         # return result of recursive exploration
         return self.root[i]
-    
+
     def union(self, i, j):
         # get roots
         root_i = self.find(i)
@@ -72,7 +75,7 @@ class DisjointSet:
                     if self.root[k] == root_j:
                         self.find(k)
                         # self.root[k] == root_i
-    
+
     # def numConnectedComponents(self):
     #     roots = []
     #     num = 0

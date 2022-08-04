@@ -16,4 +16,3 @@ class Solution:
             # didn't find full needle
             left += 1
         return -1
-        
